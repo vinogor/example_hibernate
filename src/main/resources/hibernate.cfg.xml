@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <property name="connection.url">jdbc:mysql://localhost:3306/base_for_hib?serverTimezone=UTC</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <property name="connection.username">root</property>
+        <property name="connection.password">123123</property>
+
+<!--  свойство отвечающее за генерацию таблиц в БД
+     может быть update / validate / create / create-drop
+     -->
+        <property name="hbm2ddl.auto">update</property>
+
+<!-- свойста нужные для логирования SQL запросов (они будут показываться в консоле при выполнении)   -->
+        <property name="show_sql">true</property>
+
+<!-- выводит запросы SQL в читабельном красивом виде       -->
+        <property name="format_sql">true</property>
+
+<!-- выводит доп. комментарии самого хибернета       -->
+        <property name="use_sql_comments">false</property>
+
+<!--        <mapping class="com.hillel.hibernate.entity.Student"></mapping>-->
+<!--        <mapping class="com.hillel.hibernate.entity.Subject"></mapping>-->
+<!--        <mapping class="com.hillel.hibernate.entity.Exam"></mapping>-->
+
+<!--  маппинг класса программы к таблице БД - для xml / для @    -->
+
+<!--        <mapping resource="com/entity/Student.hbm.xml"></mapping>-->
+        <mapping class="com.entity.Student"></mapping>
+        <mapping class="com.entity.Subject"></mapping>
+        <mapping class="com.entity.Exam"></mapping>
+
+    </session-factory>
+</hibernate-configuration>
